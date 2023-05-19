@@ -4,8 +4,8 @@ class Chainsaw():
 
     def __init__(self, brand, power=0, fuel_tank_capacity=0, fuel_level=0, is_working=False):
         """
-        Конструктор, який ініціалізує кожну з бензопил:
-        назва, потужність, ємність бака, рівень палива, стан роботи(працює/не працює)
+        Constructor which initializes object:
+        brand, power, fuel_tank_capacity, fuel_level, status of working(working / isn't)
         """
         self.__brand = brand
         self.__power = power
@@ -54,12 +54,23 @@ class Chainsaw():
          self.is_working = oth_working
 
     def start(self):
+        """
+        starting saw
+        """
         self.__is_working = True
 
     def stop(self):
+        """
+        stopping saw
+        """
         self.__is_working = False
 
     def cut_wood(self, length):
+        """
+        cutting a wood with given length
+        if fuel level of saw more than needed fuel for cutting, start saw(working == True)
+        if fule level of saw less than needed fuel for cutting, stop saw(working == False)
+        """
         fuel_need_for_cutting = length / 10
         if self.__fuel_level >= fuel_need_for_cutting:
                 self.__fuel_level -= fuel_need_for_cutting
@@ -68,7 +79,12 @@ class Chainsaw():
                 self.__is_working = False
 
     def __str__(self):
-         return f"\nBrand: {self.__brand}, power: {self.__power}, tank capacity: {self.__fuel_tank_capacity}, fuel level after cutting: {self.__fuel_level}, working?: {self.__is_working}"
+        """
+        Method wich returns line with camera object parameters
+        """
+        return f"\nBrand: {self.__brand}, power: {self.__power},"\
+            f"tank capacity: {self.__fuel_tank_capacity}, fuel level after cutting: {self.__fuel_level},"\
+            f" working?: {self.__is_working}"
 
 chainsaw1 = Chainsaw("Stihl", 2700, 120, 70, True)
 chainsaw2 = Chainsaw("Makita", 2500, 100, 80, True)
