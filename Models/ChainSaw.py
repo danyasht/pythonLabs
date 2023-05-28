@@ -1,7 +1,7 @@
 """
     This module is needed for lab №8
 """
-from Models.Saw import Saw
+from models.Saw import Saw
 
 
 class ChainSaw(Saw):
@@ -77,3 +77,9 @@ class ChainSaw(Saw):
                f"weight: {self.get_weight}, " \
                f"hours of work remaining: {self.get_hours}, " \
                f"battery capacity: {self.__battery_capacity}."
+
+    def color_of_saw(self):
+        """
+        Method which returns colors of saw of this class
+        """
+        return {"Black", "Orange"}

@@ -73,6 +73,22 @@ class Saw(ABC):
         """
         pass
 
+    def get_attributes_of_class(self, data_type):
+        """
+        Method which searches attribute of class by data type
+        """
+        return {key: value for key, value in self.__dict__.items() if isinstance(value, data_type)}
+
+    @abstractmethod
+    def color_of_saw(self):
+        """
+        Method which should be overrided in other classes
+        """
+        pass
+
+    def __iter__(self):
+        pass
+
     @property
     def get_working(self):
         """
